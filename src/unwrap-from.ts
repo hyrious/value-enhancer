@@ -31,7 +31,6 @@ class UnwrapFromImpl<
     const get = () => {
       if (currentValue === INIT_VALUE) {
         currentValue = computeValue();
-        this._subs.dirty = true;
       } else if (dirtyLevel || this._subs.subscribers_.size <= 0) {
         const value = computeValue();
         if (!this.compare(value, currentValue)) {

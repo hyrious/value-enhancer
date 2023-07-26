@@ -14,7 +14,6 @@ class FromImpl<TValue = any> extends ReadonlyValImpl<TValue> {
     const get = () => {
       if (currentValue === INIT_VALUE) {
         currentValue = getValue();
-        this._subs.dirty = true;
       } else if (dirtyLevel || this._subs.subscribers_.size <= 0) {
         const value = getValue();
         if (!this.compare(value, currentValue)) {
